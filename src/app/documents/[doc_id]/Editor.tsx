@@ -15,6 +15,7 @@ import Color from '@tiptap/extension-color';
 import Hightlight from '@tiptap/extension-highlight';
 import TextAlign from '@tiptap/extension-text-align';
 import { useEditorStore } from '@/store/use-editor-store';
+import { FontSizeExtension } from '@/extensions/font-size';
 
 const Editor = () => {
   const { setEditor } = useEditorStore();
@@ -50,6 +51,7 @@ const Editor = () => {
           'focus:outline-none print:border-0 bg-white border border-[#c7c7c7] flex flex-col min-h-[1054px] w-[816px] pt-10 pr-14 pb-10 cursor:text',
       },
     },
+    immediatelyRender: false,
     extensions: [
       StarterKit,
       FontFamily,
@@ -62,12 +64,13 @@ const Editor = () => {
       Hightlight.configure({ multicolor: true }),
       TaskList,
       TaskItem.configure({ nested: true }),
+      FontSizeExtension,
       Table,
       TableRow,
       TableCell,
       TableHeader,
     ],
-    content: `<h2> Hello World! 🌎️</h2>`,
+    content: `Hello World! 🌎️`,
   });
   return (
     <div className='size-full overflow-x-auto bg-[#f9fbfd] px-4 print:p-0 print:bg-white print:overflow-visible'>

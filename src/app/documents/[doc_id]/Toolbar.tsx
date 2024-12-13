@@ -3,6 +3,8 @@ import React from 'react';
 import {
   BoldIcon,
   ItalicIcon,
+  ListIcon,
+  ListOrdered,
   ListTodo,
   LucideIcon,
   MessageSquarePlusIcon,
@@ -21,6 +23,7 @@ import AlignButton from './_components/AlignButton';
 import TextColorButton from './_components/TextColorButton';
 import HeadingLevelButton from './_components/HeadingLevelButton';
 import FontFamilyButton from './_components/FontFamilyButton';
+import FontSizeButton from '@/app/documents/[doc_id]/_components/FontSizeButton';
 
 interface ToolbarButtonProps {
   onClick?: () => void;
@@ -114,6 +117,20 @@ const Toolbar = () => {
         onClick: () => editor?.chain().focus().unsetAllMarks().run(),
       },
     ],
+    [
+      {
+        label: 'Bullet List',
+        icon: ListIcon,
+        isActive: editor?.isActive('bulletList'),
+        onClick: () => editor?.chain().focus().toggleBulletList().run(),
+      },
+      {
+        label: 'Ordered List',
+        icon: ListOrdered,
+        isActive: editor?.isActive('orderedList'),
+        onClick: () => editor?.chain().focus().toggleOrderedList().run(),
+      },
+    ],
   ];
   return (
     <div className='bg-[#f1f4f9] px-2.5 py-0.5 rounded-[24px] min-h-[40px] flex items-center gap-x-0.5 overflow-x-auto'>
@@ -122,6 +139,7 @@ const Toolbar = () => {
       ))}
       <Separator orientation='vertical' className='h-6 bg-neutral-300' />
       <FontFamilyButton />
+      <FontSizeButton />
       <HeadingLevelButton />
       <Separator orientation='vertical' className='h-6 bg-neutral-300' />
       {sections[1].map((section) => (
@@ -131,6 +149,10 @@ const Toolbar = () => {
       <HighlightButton />
       <Separator orientation='vertical' className='h-6 bg-neutral-300' />
       <AlignButton />
+      <Separator orientation='vertical' className='h-6 bg-neutral-300' />
+      {sections[3].map((section) => (
+        <ToolbarButton key={section.label} {...section} />
+      ))}
       <Separator orientation='vertical' className='h-6 bg-neutral-300' />
       {sections[2].map((section) => (
         <ToolbarButton key={section.label} {...section} />

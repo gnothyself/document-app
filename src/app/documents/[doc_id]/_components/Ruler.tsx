@@ -1,5 +1,6 @@
-import { Triangle } from 'lucide-react';
 import React, { useRef } from 'react';
+// import { useEditorStore } from '@/store/use-editor-store';
+import { Triangle } from 'lucide-react';
 
 interface MarkerProps {
   position: number;
@@ -23,9 +24,9 @@ const Marker = ({
       onMouseDown={onMouseDown}
       onDoubleClick={onDoubleClick}
     >
-      <Triangle className='size-3 absolute left=1/2 top-0 h-full fill-blue-500 transform -translate-x-1/2 rotate-180' />
+      <Triangle className='size-3 absolute left-1/2 top-0 h-full fill-blue-500 transform -translate-x-1/2 rotate-180' />
       <div
-        className=' absolute left-1/2 top-4 transform -translate-x-1/2'
+        className=' absolute left-1/2 top-4 -translate-x-1/2 transform '
         style={{
           height: '100vh',
           width: '1px',
@@ -38,6 +39,8 @@ const Marker = ({
   );
 };
 const Ruler = () => {
+  // const { editor } = useEditorStore();
+
   const [leftMargin, setLeftMargin] = React.useState(56);
   const [rightMargin, setRightMargin] = React.useState(56);
   const [isDraggingLeft, setIsDraggingLeft] = React.useState(false);
@@ -51,6 +54,25 @@ const Ruler = () => {
   const handleRightMouseDown = () => {
     setIsDraggingRight(true);
   };
+
+  // const updateEditor = useCallback(() => {
+  //   const options = editor?.options;
+  //   console.log(options);
+
+  //   const currentOptions = editor?.options.editorProps;
+  //   editor?.setOptions({
+  //     editorProps: {
+  //       attributes: {
+  //         ...currentOptions?.attributes,
+  //         style: `padding-left: ${leftMargin}px; padding-right: ${rightMargin}px;`,
+  //       },
+  //     },
+  //   });
+  // }, [leftMargin, rightMargin, editor]);
+
+  // useEffect(() => {
+  //   updateEditor();
+  // }, [updateEditor]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const PAGE_WIDTH = 816;

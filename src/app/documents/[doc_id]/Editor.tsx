@@ -16,6 +16,7 @@ import Hightlight from '@tiptap/extension-highlight';
 import TextAlign from '@tiptap/extension-text-align';
 import { useEditorStore } from '@/store/use-editor-store';
 import { FontSizeExtension } from '@/extensions/font-size';
+import { LineHeightExtension } from '@/extensions/line-height';
 
 const Editor = () => {
   const { setEditor } = useEditorStore();
@@ -65,6 +66,7 @@ const Editor = () => {
       TaskList,
       TaskItem.configure({ nested: true }),
       FontSizeExtension,
+      LineHeightExtension,
       Table,
       TableRow,
       TableCell,

@@ -24,6 +24,7 @@ import TextColorButton from './_components/TextColorButton';
 import HeadingLevelButton from './_components/HeadingLevelButton';
 import FontFamilyButton from './_components/FontFamilyButton';
 import FontSizeButton from './_components/FontSizeButton';
+import LineHeightButton from './_components/LineHeightButton';
 
 interface ToolbarButtonProps {
   onClick?: () => void;
@@ -149,6 +150,7 @@ const Toolbar = () => {
       <HighlightButton />
       <Separator orientation='vertical' className='h-6 bg-neutral-300' />
       <AlignButton />
+      <LineHeightButton />
       <Separator orientation='vertical' className='h-6 bg-neutral-300' />
       {sections[3].map((section) => (
         <ToolbarButton key={section.label} {...section} />

@@ -1,12 +1,12 @@
 import React from 'react';
-import { useEditorStore } from '../../../../store/use-editor-store';
+import { useEditorStore } from '@/store/use-editor-store';
 import { AlignCenter, AlignJustify, AlignLeft, AlignRight } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '../../../../components/ui/dropdown-menu';
+} from '@/components/ui/dropdown-menu';
 
 const AlignButton = () => {
   const { editor } = useEditorStore();
@@ -43,10 +43,6 @@ const AlignButton = () => {
 
   const handleClick = async (value: string) => {
     editor?.chain().focus().setTextAlign(value).run();
-    // editor?.commands.setTextAlign(value);
-    // setTimeout(() => {
-    //   editor?.commands.focus();
-    // }, 300);
   };
   return (
     <DropdownMenu>

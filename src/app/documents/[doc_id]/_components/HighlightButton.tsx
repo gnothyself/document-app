@@ -6,7 +6,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '../../../../components/ui/dropdown-menu';
+} from '@/components/ui/dropdown-menu';
 import { ChevronDown, Highlighter } from 'lucide-react';
 
 const HighlightButton = () => {
@@ -35,7 +35,7 @@ const HighlightButton = () => {
       <div className='flex items-center hover:bg-neutral-200/50'>
         <button
           onClick={toggleHighlight}
-          className='h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 px-0 overflow-hidden text-sm '
+          className='h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 px-0 overflow-hidden text-sm'
           style={{ backgroundColor: isActive ? value : 'transparent' }}
         >
           <Highlighter className='size-4' />

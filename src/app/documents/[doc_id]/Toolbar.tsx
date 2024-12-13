@@ -23,7 +23,7 @@ import AlignButton from './_components/AlignButton';
 import TextColorButton from './_components/TextColorButton';
 import HeadingLevelButton from './_components/HeadingLevelButton';
 import FontFamilyButton from './_components/FontFamilyButton';
-import FontSizeButton from '@/app/documents/[doc_id]/_components/FontSizeButton';
+import FontSizeButton from './_components/FontSizeButton';
 
 interface ToolbarButtonProps {
   onClick?: () => void;

@@ -63,6 +63,7 @@ const FontSizeButton = () => {
       </button>
       <input
         type='text'
+        id='font-size'
         value={fontSize}
         onChange={handleInputChange}
         onBlur={handleInputBlur}
